@@ -1,6 +1,7 @@
-const http    = require("http");
-const express = require("express");
-const userRoutes = require("./routes/userRoutes");
+const http       = require("http");
+const express    = require("express");
+const eventRoute = require("./modules/events/event.route");
+const orderRoute = require("./modules/orders/order.route");
 
 const app = express();
 
@@ -8,7 +9,8 @@ const app = express();
 app.use(express.json());
 
 // ── Routes ────────────────────────────────────────────────────────
-app.use("/api", userRoutes);
+app.use("/api/events", eventRoute);
+app.use("/api/orders", orderRoute);
 
 // ── 404 Handler ───────────────────────────────────────────────────
 app.use((req, res) => {
@@ -16,7 +18,7 @@ app.use((req, res) => {
 });
 
 // ── Start Server ──────────────────────────────────────────────────
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3005;
 const server = http.createServer(app);
 
 server.on("error", (err) => {
@@ -30,7 +32,10 @@ server.on("error", (err) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`[study_case_3] Server berjalan di http://localhost:${PORT}`);
+  console.log(`[study_case_5] Server berjalan di http://localhost:${PORT}`);
   console.log("Endpoint yang tersedia:");
-  console.log("  POST /api/register");
+  console.log("  GET  /api/events");
+  console.log("  GET  /api/events/:id");
+  console.log("  POST /api/orders     { userId, eventId }");
+  console.log("  GET  /api/orders");
 });

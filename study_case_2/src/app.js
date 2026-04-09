@@ -1,6 +1,6 @@
 const http    = require("http");
 const express = require("express");
-const secretRoutes = require("./routes/secretRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 // ── Routes ────────────────────────────────────────────────────────
-app.use("/api/secrets", secretRoutes);
+app.use("/api", userRoutes);
 
 // ── 404 Handler ───────────────────────────────────────────────────
 app.use((req, res) => {
@@ -16,7 +16,7 @@ app.use((req, res) => {
 });
 
 // ── Start Server ──────────────────────────────────────────────────
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3003;
 const server = http.createServer(app);
 
 server.on("error", (err) => {
@@ -30,8 +30,7 @@ server.on("error", (err) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`[study_case_2] Server berjalan di http://localhost:${PORT}`);
+  console.log(`[study_case_3] Server berjalan di http://localhost:${PORT}`);
   console.log("Endpoint yang tersedia:");
-  console.log("  GET /api/secrets");
-  console.log("  GET /api/secrets/:id");
+  console.log("  POST /api/register");
 });
