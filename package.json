@@ -1,0 +1,25 @@
+{
+  "name": "express_study_case",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "study_case_1": "node studi_case_1/src/app.js",
+    "study_case_2": "node study_case_2/src/app.js",
+    "study_case_3": "node study_case_3/src/app.js",
+    "study_case_4": "node study_case_4/src/app.js",
+    "study_case_5": "node study_case_5/src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.8.0",
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  }
+}
